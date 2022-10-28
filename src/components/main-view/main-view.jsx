@@ -1,7 +1,7 @@
 import React from 'react';
-import { render } from 'react-dom';
 
 import { MovieCard } from '../movie-card/movie-card';
+import { MovieView } from '../movie-view/movie-view';
 
 export class MainView extends React.Component {
   constructor() {
@@ -27,20 +27,43 @@ export class MainView extends React.Component {
           ImagePath: '...',
         },
       ],
+      selectedMovie: null,
     };
   }
+
+  setSelectedMovie(newSelectedMovie) {
+    this.setState({
+      selectedMovie: newSelectedMovie,
+    });
+  }
+
   render() {
-    const { movies } = this.state;
-    if (movies.length === 0) {
+    const { movies, selectedMovie } = this.state;
+
+    if (movies.length === 0)
       return <div className='main-view'>The list is empty!</div>;
-    } else {
-      return (
-        <div className='main-view'>
-          {movies.map((movie) => (
-            <MovieCard key={movie._id} movieData={movie} />
-          ))}
-        </div>
-      );
-    }
+
+    return (
+      <div className='main-view'>
+        {selectedMovie ? (
+          <MovieView
+            movie={selectedMovie}
+            onBackClick={(newSelectedMovie) => {
+              this.setSelectedMovie(newSelectedMovie);
+            }}
+          />
+        ) : (
+          movies.map((movie) => (
+            <MovieCard
+              key={movie._id}
+              movie={movie}
+              onMovieClick={(movie) => {
+                this.setSelectedMovie(movie);
+              }}
+            />
+          ))
+        )}
+      </div>
+    );
   }
 }
