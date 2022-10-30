@@ -18,14 +18,21 @@ export function LoginView(props) {
         <Form.Label>Username:</Form.Label>
         <Form.Control
           type='text'
+          value={username}
+          placeholder='Enter username'
           onChange={(e) => setUsername(e.target.value)}
+          required
         />
       </Form.Group>
       <Form.Group controlId='formPassword'>
         <Form.Label>Password:</Form.Label>
         <Form.Control
           type='password'
+          value={password}
+          placeholder='Enter password'
           onChange={(e) => setPassword(e.target.value)}
+          required
+          minLength='8'
         />
       </Form.Group>
       <Button variant='primary' type='submit' onClick={handleSubmit}>
