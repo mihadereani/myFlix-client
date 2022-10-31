@@ -1,5 +1,6 @@
 .login-view {
   width: 443px;
+  margin-top: 24px;
   padding: 36px;
 }
 
@@ -13,6 +14,7 @@
 
 .register-text {
   margin-top: 24px;
+  font-weight: bold;
 }
 
 
