@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Button from 'react-bootstrap/Button';
 
 import './movie-view.scss';
 
@@ -50,14 +51,14 @@ export class MovieView extends React.Component {
               <span className='value'>{movie.Director.Bio}</span>
             </Col>
           </Row>
-
-          <button
+          <Button
             onClick={() => {
               onBackClick(null);
             }}
+            variant='outline-primary'
           >
             Back
-          </button>
+          </Button>{' '}
         </Col>
       </Row>
     );
