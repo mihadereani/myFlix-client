@@ -19,6 +19,7 @@ export function LoginView(props) {
 
   return (
     <Row>
+      <Col></Col>
       <Col>
         <Card className='login-view' border='primary'>
           <Card.Body>
@@ -70,6 +71,7 @@ export function LoginView(props) {
           </Card.Body>
         </Card>
       </Col>
+      <Col></Col>
     </Row>
   );
 }
