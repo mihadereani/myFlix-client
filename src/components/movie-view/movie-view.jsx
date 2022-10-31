@@ -1,30 +1,65 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+
+import './movie-view.scss';
 
 export class MovieView extends React.Component {
   render() {
     const { movie, onBackClick } = this.props;
     return (
-      <div className='movie-view'>
-        <div className='movie-poster'>
-          <img src={movie.ImagePath} />
-        </div>
-        <div className='movie-title'>
-          <span className='label'>Title: </span>
-          <span className='value'>{movie.Title}</span>
-        </div>
-        <div className='movie-description'>
-          <span className='label'>Description: </span>
-          <span className='value'>{movie.Description}</span>
-        </div>
-        <button
-          onClick={() => {
-            onBackClick(null);
-          }}
-        >
-          Back
-        </button>
-      </div>
+      <Row className='movie-view'>
+        <Col>
+          <Row className='movie-poster'>
+            <img src={movie.ImagePath} />
+          </Row>
+          <Row className='movie-title'>
+            <Col>
+              <span className='label'>Title: </span>
+              <span className='value'>{movie.Title}</span>
+            </Col>
+          </Row>
+          <Row className='movie-description'>
+            <Col>
+              <span className='label'>Description: </span>
+              <span className='value'>{movie.Description}</span>
+            </Col>
+          </Row>
+          <Row className='movie-genre__name'>
+            <Col>
+              <span className='label'>Genre name: </span>
+              <span className='value'>{movie.Genre.Name}</span>
+            </Col>
+          </Row>
+          <Row className='movie-genre__description'>
+            <Col>
+              <span className='label'>Genre description: </span>
+              <span className='value'>{movie.Genre.Description}</span>
+            </Col>
+          </Row>
+          <Row className='directo-genre__name'>
+            <Col>
+              <span className='label'>Director's name: </span>
+              <span className='value'>{movie.Director.Name}</span>
+            </Col>
+          </Row>
+          <Row className='directo-genre__bio'>
+            <Col>
+              <span className='label'>Direcor's bio: </span>
+              <span className='value'>{movie.Director.Bio}</span>
+            </Col>
+          </Row>
+
+          <button
+            onClick={() => {
+              onBackClick(null);
+            }}
+          >
+            Back
+          </button>
+        </Col>
+      </Row>
     );
   }
 }

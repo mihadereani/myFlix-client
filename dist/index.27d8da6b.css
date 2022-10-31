@@ -17,10 +17,22 @@
   font-weight: bold;
 }
 
+.movie-view {
+  background-color: #f0f8ff;
+}
+
+.movie-title {
+  font-size: 36px;
+}
+
+.label {
+  font-weight: bold;
+}
 
 
-.my-flix {
-  color: #4682b4;
+
+.app-container {
+  background-image: linear-gradient(to bottom right, #a600ff, #f0c);
 }
 
 /*# sourceMappingURL=index.27d8da6b.css.map */
