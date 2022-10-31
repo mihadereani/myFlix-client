@@ -1,0 +1,24 @@
+.login-view {
+  width: 443px;
+  padding: 36px;
+}
+
+.login-title {
+  font-size: 32px;
+}
+
+.login-view__label, .login-view__button {
+  margin-top: 12px;
+}
+
+.register-text {
+  margin-top: 24px;
+}
+
+
+
+.my-flix {
+  color: #4682b4;
+}
+
+/*# sourceMappingURL=index.27d8da6b.css.map */
