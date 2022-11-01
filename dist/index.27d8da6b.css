@@ -1,5 +1,4 @@
 .login-view {
-  width: 443px;
   margin-top: 24px;
   padding: 36px;
 }
@@ -17,11 +16,29 @@
   font-weight: bold;
 }
 
+.movie-card {
+  margin-top: 24px;
+}
+
+.movie-card__img {
+  height: 384.34apx;
+}
+
+.movie-card__content {
+  height: 150px;
+}
+
 .movie-view {
-  background-color: #f0f8ff;
+  background-color: #fcfcfc;
+  padding-top: 12px;
+}
+
+.movie-poster {
+  margin-bottom: 12px;
 }
 
 .movie-title {
+  margin-bottom: 6px;
   font-size: 36px;
 }
 
@@ -29,10 +46,22 @@
   font-weight: bold;
 }
 
+.paragraph {
+  margin-bottom: 6px;
+}
+
+.button {
+  margin: 24px 0;
+}
+
 
 
 .app-container {
-  background-image: linear-gradient(to bottom right, #a600ff, #f0c);
+  background-image: linear-gradient(to bottom right, #9205de, #f0c);
+}
+
+.my-flix {
+  margin: 0;
 }
 
 /*# sourceMappingURL=index.27d8da6b.css.map */

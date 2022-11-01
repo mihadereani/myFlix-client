@@ -21,41 +21,42 @@ export class MovieView extends React.Component {
               <span className='value'>{movie.Title}</span>
             </Col>
           </Row>
-          <Row className='movie-description'>
+          <Row className='movie-description paragraph'>
             <Col>
               <span className='label'>Description: </span>
               <span className='value'>{movie.Description}</span>
             </Col>
           </Row>
-          <Row className='movie-genre__name'>
+          <Row className='paragraph'>
             <Col>
               <span className='label'>Genre name: </span>
               <span className='value'>{movie.Genre.Name}</span>
             </Col>
           </Row>
-          <Row className='movie-genre__description'>
+          <Row className='paragraph'>
             <Col>
               <span className='label'>Genre description: </span>
               <span className='value'>{movie.Genre.Description}</span>
             </Col>
           </Row>
-          <Row className='directo-genre__name'>
+          <Row className='paragraph'>
             <Col>
               <span className='label'>Director's name: </span>
               <span className='value'>{movie.Director.Name}</span>
             </Col>
           </Row>
-          <Row className='directo-genre__bio'>
+          <Row className='director-bio'>
             <Col>
               <span className='label'>Direcor's bio: </span>
               <span className='value'>{movie.Director.Bio}</span>
             </Col>
           </Row>
           <Button
+            className='button'
             onClick={() => {
               onBackClick(null);
             }}
-            variant='outline-primary'
+            variant='primary'
           >
             Back
           </Button>{' '}

@@ -20,7 +20,7 @@ export function LoginView(props) {
   return (
     <Row>
       <Col></Col>
-      <Col>
+      <Col md={8}>
         <Card className='login-view' border='primary'>
           <Card.Body>
             <Col className='login-title'>Login to myFlix</Col>
