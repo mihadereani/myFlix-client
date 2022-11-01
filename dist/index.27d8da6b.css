@@ -21,7 +21,8 @@
 }
 
 .movie-card__img {
-  height: 384.34apx;
+  width: 100%;
+  object-fit: cover;
 }
 
 .movie-card__content {
