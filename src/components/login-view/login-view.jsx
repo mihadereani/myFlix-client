@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
@@ -15,7 +16,7 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('https://myflixmiha.herokuapp.com/login', {
+      .post('http://localhost:8080/login', {
         Username: username,
         Password: password,
       })
