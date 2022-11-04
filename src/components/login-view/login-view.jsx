@@ -16,7 +16,7 @@ export function LoginView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     axios
-      .post('http://localhost:8080/login', {
+      .post('https://myflixmiha.herokuapp.com/login', {
         Username: username,
         Password: password,
       })
@@ -43,20 +43,18 @@ export function LoginView(props) {
                 <Form.Label className='login-view__label'>Username:</Form.Label>
                 <Form.Control
                   type='text'
-                  value={username}
                   placeholder='Enter username'
+                  value={username}
                   onChange={(e) => setUsername(e.target.value)}
-                  required
                 />
               </Form.Group>
               <Form.Group controlId='formPassword'>
                 <Form.Label className='login-view__label'>Password:</Form.Label>
                 <Form.Control
                   type='password'
-                  value={password}
                   placeholder='Enter password'
+                  value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  required
                 />
               </Form.Group>
               <Button

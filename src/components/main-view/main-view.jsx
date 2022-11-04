@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
+
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
@@ -20,16 +22,13 @@ export class MainView extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get('https://myflixmiha.herokuapp.com/movies')
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user'),
       });
+      this.getMovies(accessToken);
+    }
   }
 
   setSelectedMovie(movie) {
@@ -38,8 +37,30 @@ export class MainView extends React.Component {
     });
   }
 
-  onLoggedIn(user) {
-    this.setState({ user });
+  onLoggedIn(authData) {
+    console.log(authData);
+    this.setState({
+      user: authData.user.Username,
+    });
+
+    localStorage.setItem('token', authData.token);
+    localStorage.setItem('user', authData.user.Username);
+    this.getMovies(authData.token);
+  }
+
+  getMovies(token) {
+    axios
+      .get('https://myflixmiha.herokuapp.com/movies', {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        this.setState({
+          movies: response.data,
+        });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
