@@ -48,6 +48,14 @@ export class MainView extends React.Component {
     this.getMovies(authData.token);
   }
 
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null,
+    });
+  }
+
   getMovies(token) {
     axios
       .get('https://myflixmiha.herokuapp.com/movies', {
@@ -95,6 +103,13 @@ export class MainView extends React.Component {
             </Col>
           ))
         )}
+        <button
+          onClick={() => {
+            this.onLoggedOut();
+          }}
+        >
+          Logout
+        </button>
       </Row>
     );
   }
