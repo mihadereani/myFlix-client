@@ -1,13 +1,73 @@
 import React, { useState } from 'react';
+import axios from 'axios';
+import PropTypes from 'prop-types';
+import '.registartion-view.scss';
 
 export function RegistrationView(props) {
+  const [name, setName] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+  const [values, setValues] = useState({
+    nameErr: '',
+    usernameErr: '',
+    passwordErr: '',
+    emailErr: '',
+  });
 
+  const validate = () => {
+    let isReq = true;
+    if (name) {
+      setValues({ ...values, nameErr: 'Name is required' });
+      isReq = false;
+    }
+    if (!username) {
+      setValues({ ...values, usernameErr: 'Username is required' });
+    } else if (username.length < 5) {
+      setValues({
+        ...values,
+        usernameErr: 'Username must be 5 characters long',
+      });
+      isReq = false;
+    }
+    if (!password) {
+      setValues({ ...values, passwordErr: 'Password Required' });
+      isReq = false;
+    } else if (password.length < 6) {
+      setValues({
+        ...values,
+        passwordErr: 'Password must be 6 characters long',
+      });
+      isReq = false;
+    }
+    if (!email) {
+      setValues({ ...values, emailErr: 'Email Required' });
+      isReq = false;
+    } else if (email.indexOf('@') === -1) {
+      setValues({ ...values, emailErr: 'Email is invalid' });
+      isReq = false;
+    }
+
+    return isReq;
+  };
   const handleSubmit = (e) => {
     e.preventDefault();
+    const isReq = validate();
+    if (isReq) {
+      axios
+        .post('YOUR_API_URL/users', {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthday: birthday,
+        })
+        .then((response) => {})
+        .catch((e) => '');
+    }
+
     console.log(username, password, email);
     props.onLoggedIn(username);
   };
