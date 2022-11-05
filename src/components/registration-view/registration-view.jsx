@@ -53,23 +53,30 @@ export function RegistrationView(props) {
 
     return isReq;
   };
+
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
     if (isReq) {
       axios
-        .post('YOUR_API_URL/users', {
+        .post('https://myflixmiha.herokuapp.com/users', {
+          Name: name,
           Username: username,
           Password: password,
           Email: email,
           Birthday: birthday,
         })
-        .then((response) => {})
-        .catch((e) => '');
+        .then((response) => {
+          const data = response.data;
+          console.log(data);
+          alert('Registration succesful, please login!');
+          window.open('/', '_self');
+        })
+        .catch((response) => {
+          console.error(response);
+          alert('unable to register');
+        });
     }
-
-    console.log(username, password, email);
-    props.onLoggedIn(username);
   };
 
   return (
