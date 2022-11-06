@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
+import { Row, Col, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './movie-view.scss';
 
@@ -21,7 +20,7 @@ export class MovieView extends React.Component {
               <span className='value'>{movie.Title}</span>
             </Col>
           </Row>
-          <Row className='movie-description paragraph'>
+          <Row className='paragraph'>
             <Col>
               <span className='label'>Description: </span>
               <span className='value'>{movie.Description}</span>
@@ -29,8 +28,11 @@ export class MovieView extends React.Component {
           </Row>
           <Row className='paragraph'>
             <Col>
-              <span className='label'>Genre name: </span>
+              <span className='label'>Genre: </span>
               <span className='value'>{movie.Genre.Name}</span>
+              <Link to={`/genres/${movie.Genre.Name}`}>
+                <Button variant='link'>Genre</Button>
+              </Link>
             </Col>
           </Row>
           <Row className='paragraph'>
@@ -41,8 +43,11 @@ export class MovieView extends React.Component {
           </Row>
           <Row className='paragraph'>
             <Col>
-              <span className='label'>Director's name: </span>
+              <span className='label'>Director: </span>
               <span className='value'>{movie.Director.Name}</span>
+              <Link to={`/genres/${movie.Director.Name}`}>
+                <Button variant='link'>Director</Button>
+              </Link>
             </Col>
           </Row>
           <Row className='director-bio'>
@@ -54,7 +59,7 @@ export class MovieView extends React.Component {
           <Button
             className='button'
             onClick={() => {
-              onBackClick(null);
+              onBackClick();
             }}
             variant='primary'
           >

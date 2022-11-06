@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
+import { Row, Col, Button, Form, Card } from 'react-bootstrap';
 
 import './login-view.scss';
 
@@ -73,7 +69,7 @@ export function LoginView(props) {
               className='login-view__button'
               variant='outline-primary'
               type='submit'
-              onClick={handleSubmit}
+              href='/register'
             >
               Register
             </Button>

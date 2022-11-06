@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Row, Col, Button, Container, Form } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import './registration-view.scss';
 
@@ -128,7 +129,7 @@ export function RegistrationView(props) {
           </Button>
           <p></p>
           <p>
-            Already registered <link to={'/'}>sign in</link> hree{' '}
+            Already registered <Link to={'/'}>sign in</Link> hree{' '}
           </p>
         </Form>
       </Col>
