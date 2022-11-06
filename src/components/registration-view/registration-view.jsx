@@ -3,7 +3,7 @@ import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Row, Col, Button, Container, Form } from 'react-bootstrap';
 
-import '.registartion-view.scss';
+import './registration-view.scss';
 
 export function RegistrationView(props) {
   const [name, setName] = useState('');

@@ -10,6 +10,7 @@ import { LoginView } from '../login-view/login-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { RegistrationView } from '../registration-view/registration-view';
 
 export class MainView extends React.Component {
   constructor() {
@@ -59,12 +60,6 @@ export class MainView extends React.Component {
   render() {
     const { movies, user } = this.state;
 
-    if (!user)
-      <Row>
-        <Col>
-          return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-        </Col>
-      </Row>;
     if (movies.length === 0) return <div className='main-view' />;
 
     return (
@@ -75,6 +70,12 @@ export class MainView extends React.Component {
               exact
               path='/'
               render={() => {
+                if (!user)
+                  return (
+                    <Col>
+                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                    </Col>
+                  );
                 return movies.map((m) => (
                   <Col md={6} lg={4} xl={3} key={m._id}>
                     <MovieCard movie={m} />
@@ -82,6 +83,19 @@ export class MainView extends React.Component {
                 ));
               }}
             />
+
+            <Route
+              exact
+              path='/register'
+              render={() => {
+                return (
+                  <Col>
+                    <RegistrationView />
+                  </Col>
+                );
+              }}
+            />
+
             <Route
               exact
               path='/movies/:movieId'
