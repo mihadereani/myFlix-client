@@ -59,8 +59,6 @@ export class MainView extends React.Component {
   render() {
     const { movies, user } = this.state;
 
-    if (movies.length === 0) return <div className='main-view' />;
-
     return (
       <Router>
         <Row className='main-view justify-content-md-center'>
@@ -75,6 +73,9 @@ export class MainView extends React.Component {
                       <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                     </Col>
                   );
+
+                if (movies.length === 0) return <div className='main-view' />;
+
                 return movies.map((m) => (
                   <Col md={6} lg={4} xl={3} key={m._id}>
                     <MovieCard movie={m} />
