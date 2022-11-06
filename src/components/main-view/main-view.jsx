@@ -1,7 +1,12 @@
 import React from 'react';
 import axios from 'axios';
 
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import {
+  BrowserRouter as Router,
+  Route,
+  Redirect,
+  Link,
+} from 'react-router-dom';
 
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
@@ -12,6 +17,7 @@ import { RegistrationView } from '../registration-view/registration-view';
 
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Container } from 'react-bootstrap';
 
 export class MainView extends React.Component {
   constructor() {
@@ -75,11 +81,22 @@ export class MainView extends React.Component {
                   </Col>
                 );
               if (movies.length === 0) return <div className='main-view' />;
-              return movies.map((m) => (
-                <Col md={6} lg={4} xl={3} key={m._id}>
-                  <MovieCard movie={m} />
-                </Col>
-              ));
+              return (
+                <Container>
+                  <Row>
+                    <Col>
+                      <Link to={`users/${user}`}>{user}</Link>
+                    </Col>
+                  </Row>
+                  <Row>
+                    {movies.map((m) => (
+                      <Col md={6} lg={4} xl={3} key={m._id}>
+                        <MovieCard movie={m} />
+                      </Col>
+                    ))}
+                  </Row>
+                </Container>
+              );
             }}
           />
 
@@ -91,6 +108,22 @@ export class MainView extends React.Component {
               return (
                 <Col>
                   <RegistrationView />
+                </Col>
+              );
+            }}
+          />
+
+          <Route
+            exact
+            path={`/users/${user}`}
+            render={({ history }) => {
+              if (!user) return <Redirect to='/' />;
+              return (
+                <Col>
+                  <ProfileView
+                    user={user}
+                    onBackClick={() => history.goBack()}
+                  />
                 </Col>
               );
             }}
