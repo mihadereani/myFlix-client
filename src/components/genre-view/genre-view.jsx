@@ -3,7 +3,7 @@ import { Container, Row, Col, Button } from 'react-bootstrap';
 
 export class GenreView extends React.Component {
   render() {
-    const { genre, onBackClick, genreMovies } = this.props;
+    const { genre, onBackClick } = this.props;
 
     return (
       <Container>
