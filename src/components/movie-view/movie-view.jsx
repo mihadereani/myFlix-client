@@ -45,7 +45,7 @@ export class MovieView extends React.Component {
             <Col>
               <span className='label'>Director: </span>
               <span className='value'>{movie.Director.Name}</span>
-              <Link to={`/genres/${movie.Director.Name}`}>
+              <Link to={`/directors/${movie.Director.Name}`}>
                 <Button variant='link'>Director</Button>
               </Link>
             </Col>
@@ -64,7 +64,7 @@ export class MovieView extends React.Component {
             variant='primary'
           >
             Back
-          </Button>{' '}
+          </Button>
         </Col>
       </Row>
     );

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
 import { Row, Col, Button, Form, Card } from 'react-bootstrap';
 
 import './login-view.scss';
