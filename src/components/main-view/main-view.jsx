@@ -1,12 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-import {
-  BrowserRouter as Router,
-  Routes,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
@@ -67,55 +62,53 @@ export class MainView extends React.Component {
     return (
       <Router>
         <Row className='main-view justify-content-md-center'>
-          <Routes>
-            <Route
-              exact
-              path='/'
-              render={() => {
-                if (!user)
-                  return (
-                    <Col>
-                      <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-                    </Col>
-                  );
-
-                if (movies.length === 0) return <div className='main-view' />;
-
-                return movies.map((m) => (
-                  <Col md={6} lg={4} xl={3} key={m._id}>
-                    <MovieCard movie={m} />
-                  </Col>
-                ));
-              }}
-            />
-
-            <Route
-              exact
-              path='/register'
-              render={() => {
-                if (user) return <Redirect to='/' />;
+          <Route
+            exact
+            path='/'
+            render={() => {
+              if (!user)
                 return (
                   <Col>
-                    <RegistrationView />
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
                   </Col>
                 );
-              }}
-            />
 
-            <Route
-              exact
-              path='/movies/:movieId'
-              render={({ match }) => {
-                return (
-                  <Col md={8}>
-                    <MovieView
-                      movie={movies.find((m) => m._id === match.params.movieId)}
-                    />
-                  </Col>
-                );
-              }}
-            />
-          </Routes>
+              if (movies.length === 0) return <div className='main-view' />;
+
+              return movies.map((m) => (
+                <Col md={6} lg={4} xl={3} key={m._id}>
+                  <MovieCard movie={m} />
+                </Col>
+              ));
+            }}
+          />
+
+          <Route
+            exact
+            path='/register'
+            render={() => {
+              if (user) return <Redirect to='/' />;
+              return (
+                <Col>
+                  <RegistrationView />
+                </Col>
+              );
+            }}
+          />
+
+          <Route
+            exact
+            path='/movies/:movieId'
+            render={({ match }) => {
+              return (
+                <Col md={8}>
+                  <MovieView
+                    movie={movies.find((m) => m._id === match.params.movieId)}
+                  />
+                </Col>
+              );
+            }}
+          />
         </Row>
       </Router>
     );
