@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import { Button, Card } from 'react-bootstrap';
+
+import { Link } from 'react-router-dom';
 
 import './movie-card.scss';
 
 export class MovieCard extends React.Component {
   render() {
-    const { movie, onMovieClick } = this.props;
+    const { movie } = this.props;
 
     return (
       <Card className='movie-card' border='primary'>
@@ -19,15 +20,10 @@ export class MovieCard extends React.Component {
         <Card.Body className='movie-card__content'>
           <Card.Title>{movie.Title}</Card.Title>
           <Card.Text>{movie.Description.substring(0, 80)} ...</Card.Text>
+          <Link to={`/movies/${movie._id}`}>
+            <Button variant='link'>Open</Button>
+          </Link>
         </Card.Body>
-        <Button
-          onClick={() => {
-            onMovieClick(movie);
-          }}
-          variant='link'
-        >
-          Open
-        </Button>
       </Card>
     );
   }
