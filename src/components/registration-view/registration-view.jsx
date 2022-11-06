@@ -22,10 +22,10 @@ export function RegistrationView(props) {
 
   const validate = () => {
     let isReq = true;
-    if (name) {
-      setValues({ ...values, nameErr: 'Name is required' });
-      isReq = false;
-    }
+    // if (name) {
+    //   setValues({ ...values, nameErr: 'Name is required' });
+    //   isReq = false;
+    // }
     if (!username) {
       setValues({ ...values, usernameErr: 'Username is required' });
     } else if (username.length < 5) {
@@ -56,13 +56,12 @@ export function RegistrationView(props) {
     return isReq;
   };
 
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
     const isReq = validate();
     if (isReq) {
       axios
         .post('https://myflixmiha.herokuapp.com/users', {
-          Name: name,
           Username: username,
           Password: password,
           Email: email,
@@ -71,12 +70,10 @@ export function RegistrationView(props) {
         .then((response) => {
           const data = response.data;
           console.log(data);
-          alert('Registration succesful, please login!');
           window.open('/', '_self');
         })
-        .catch((response) => {
-          console.error(response);
-          alert('unable to register');
+        .catch((e) => {
+          console.log('error registering the user');
         });
     }
   };
@@ -126,7 +123,7 @@ export function RegistrationView(props) {
             />
           </Form.Group>
 
-          <Button variant='primary' type='submit' onClick={handleSubmit}>
+          <Button variant='primary' type='submit' onClick={handleRegister}>
             Submit
           </Button>
           <p></p>
