@@ -23,10 +23,6 @@ export function RegistrationView(props) {
 
   const validate = () => {
     let isReq = true;
-    // if (name) {
-    //   setValues({ ...values, nameErr: 'Name is required' });
-    //   isReq = false;
-    // }
     if (!username) {
       setValues({ ...values, usernameErr: 'Username is required' });
     } else if (username.length < 5) {
