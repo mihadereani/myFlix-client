@@ -1,7 +1,15 @@
 import React from 'react';
 import axios from 'axios';
 
-import { Button, Form, Card } from 'react-bootstrap';
+import {
+  Button,
+  Form,
+  Card,
+  Row,
+  Col,
+  Container,
+  Figure,
+} from 'react-bootstrap';
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -20,18 +28,15 @@ export class ProfileView extends React.Component {
   }
 
   getUser = () => {
-    const username = localStorage.getItem('user');
+    const user = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     axios
-      .get(`https://myflixmiha.herokuapp.com/users/${username}`, {
+      .get(`https://myflixmiha.herokuapp.com/users/${user}`, {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
         this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          profile: response.data,
         });
       })
       .catch((error) => {
@@ -41,16 +46,16 @@ export class ProfileView extends React.Component {
 
   updateUser = (e) => {
     e.preventDeafult();
-    const username = localStorage.getItem('user');
+    const user = localStorage.getItem('user');
     const token = localStorage.getItem('token');
     axios
       .put(
-        `https://myflixmiha.herokuapp.com/users/${username}`,
+        `https://myflixmiha.herokuapp.com/users/${user}`,
         {
-          Username: this.state.Username,
-          Password: this.state.Password,
-          Email: this.state.Email,
-          Birthday: this.state.Birthday,
+          Username: this.state.username,
+          Password: this.state.password,
+          Email: this.state.email,
+          Birthday: this.state.birthday,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       )
@@ -58,10 +63,10 @@ export class ProfileView extends React.Component {
         console.log(response);
         alert('Profile was successfully updated');
         this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
+          username: response.data.Username,
+          password: response.data.Password,
+          email: response.data.Email,
+          birthday: response.data.Birthday,
         });
         localStorage.setItem('user', data.Username);
 
@@ -76,10 +81,10 @@ export class ProfileView extends React.Component {
     const confirmDelete = window.confirm('Confirm to remove');
 
     if (confirmDelete) {
-      const username = localStorage.getItem(user);
+      const user = localStorage.getItem(user);
       const token = localStorage.getItem(token);
       axios
-        .delete(`https://myflixmiha.herokuapp.com/users/${username}`, {
+        .delete(`https://myflixmiha.herokuapp.com/users/${user}`, {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then(() => {
@@ -95,11 +100,11 @@ export class ProfileView extends React.Component {
   };
 
   removeFavoriteMovie = (e) => {
-    const username = localStorage.getItem(user);
+    const user = localStorage.getItem(user);
     const token = localStorage.getItem(token);
     axios
       .delete(
-        `https://myflixmiha.herokuapp.com/users/${username}/movies/${movieId}`,
+        `https://myflixmiha.herokuapp.com/users/${user}/movies/${movieId}`,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
@@ -116,91 +121,115 @@ export class ProfileView extends React.Component {
 
   setUsername(value) {
     this.setState({
-      Username: value,
+      username: value,
     });
   }
 
   setPassword(value) {
     this.setState({
-      Password: value,
+      password: value,
     });
   }
 
   setEmail(value) {
     this.setState({
-      Email: value,
+      email: value,
     });
   }
 
   setBirthday(value) {
     this.setState({
-      Birthday: value,
+      birthday: value,
     });
   }
 
   render() {
-    const { user } = this.state;
-
     return (
-      <Card>
-        <Form>
-          <Form.Group className='mb-3'>
-            <Form.Label>Username</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter username'
-              onChange={(e) => this.setUsername(e.target.value)}
-              required
-            />
-            <Form.Text className='text-muted'>
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+      <Container>
+        <Row>
+          <Col>
+            <Card>
+              <Form>
+                <Form.Group className='mb-3'>
+                  <Form.Label>Username</Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter username'
+                    onChange={(e) => this.setUsername(e.target.value)}
+                    required
+                  />
+                  <Form.Text className='text-muted'>
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-          <Form.Group className='mb-3'>
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type='password'
-              placeholder='Password'
-              onChange={(e) => this.setPassword(e.target.value)}
-              required
-            />
-            <Form.Text className='text-muted'>
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+                <Form.Group className='mb-3'>
+                  <Form.Label>Password</Form.Label>
+                  <Form.Control
+                    type='password'
+                    placeholder='Password'
+                    onChange={(e) => this.setPassword(e.target.value)}
+                    required
+                  />
+                  <Form.Text className='text-muted'>
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-          <Form.Group className='mb-3'>
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type='email'
-              placeholder='Enter email'
-              onChange={(e) => this.setEmail(e.target.value)}
-              required
-            />
-            <Form.Text className='text-muted'>
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+                <Form.Group className='mb-3'>
+                  <Form.Label>Email address</Form.Label>
+                  <Form.Control
+                    type='email'
+                    placeholder='Enter email'
+                    onChange={(e) => this.setEmail(e.target.value)}
+                    required
+                  />
+                  <Form.Text className='text-muted'>
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-          <Form.Group className='mb-3'>
-            <Form.Label>Date of birth</Form.Label>
-            <Form.Control
-              type='text'
-              placeholder='Enter birthday'
-              onChange={(e) => this.setBirthday(e.target.value)}
-              required
-            />
-            <Form.Text className='text-muted'>
-              We'll never share your email with anyone else.
-            </Form.Text>
-          </Form.Group>
+                <Form.Group className='mb-3'>
+                  <Form.Label>Date of birth</Form.Label>
+                  <Form.Control
+                    type='text'
+                    placeholder='Enter birthday'
+                    onChange={(e) => this.setBirthday(e.target.value)}
+                    required
+                  />
+                  <Form.Text className='text-muted'>
+                    We'll never share your email with anyone else.
+                  </Form.Text>
+                </Form.Group>
 
-          <Button variant='primary' type='submit'>
-            Update
-          </Button>
-        </Form>
-      </Card>
+                <Button
+                  variant='primary'
+                  type='submit'
+                  onClick={this.updateUser}
+                >
+                  Update
+                </Button>
+              </Form>
+            </Card>
+          </Col>
+        </Row>
+
+        <Row>
+          <Col>
+            <h5>My Favourite movies</h5>
+          </Col>
+        </Row>
+        {/* <Row>
+          <Col>
+            <Figure>
+              <Figure.Image src={movie.ImagePath} />
+              <Figure.Caption>
+                Nulla vitae elit libero, a pharetra augue mollis interdum.
+              </Figure.Caption>
+            </Figure>
+          </Col>
+        </Row> */}
+      </Container>
     );
   }
 }

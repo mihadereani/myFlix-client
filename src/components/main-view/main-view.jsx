@@ -123,6 +123,7 @@ export class MainView extends React.Component {
                 <Col>
                   <ProfileView
                     user={user}
+                    movies={movies}
                     onBackClick={() => history.goBack()}
                   />
                 </Col>
