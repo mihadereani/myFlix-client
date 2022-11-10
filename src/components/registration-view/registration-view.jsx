@@ -81,7 +81,7 @@ export function RegistrationView(props) {
         <Form>
           <h3>Sign Up</h3>
           <p></p>
-          <Form.Group controlId='formUsername' className='reg-form-inputs'>
+          <Form.Group>
             <Form.Label>Username:</Form.Label>
             <Form.Control
               type='text'
@@ -91,7 +91,7 @@ export function RegistrationView(props) {
             {values.usernameErr && <p>{values.usernameErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='formPassword' className='reg-form-inputs'>
+          <Form.Group>
             <Form.Label>Password:</Form.Label>
             <Form.Control
               type='password'
@@ -101,7 +101,7 @@ export function RegistrationView(props) {
             {values.passwordErr && <p>{values.passwordErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='Email' className='reg-form-inputs'>
+          <Form.Group>
             <Form.Label>Email:</Form.Label>
             <Form.Control
               type='email'
@@ -111,7 +111,7 @@ export function RegistrationView(props) {
             {values.emailErr && <p>{values.emailErr}</p>}
           </Form.Group>
 
-          <Form.Group controlId='updateBirthday'>
+          <Form.Group>
             <Form.Label>Birthday:</Form.Label>
             <Form.Control
               type='date'
