@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
 import { Button, Card, Container, Row, Col } from 'react-bootstrap';
-
-import FavouriteMovies from './favourite-movies';
 
 import './profile-view.scss';
 
-export function ProfileView(movies) {
+export function ProfileView({ movies }) {
   const [user, setUser] = useState();
-  const [favouriteMovies, setFavouriteMovies] = useState([]);
+  const [favoriteMoviesId, setFavoriteMoviesId] = useState([]);
+
+  const favoriteMovies = favoriteMoviesId.map((movieId) =>
+    movies.find((m) => m._id === movieId)
+  );
+
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
@@ -20,16 +22,35 @@ export function ProfileView(movies) {
       })
       .then((response) => {
         setUser(response.data);
-        setFavouriteMovies(
-          movies.filter((movie) => {
-            response.data.FavouriteMovies.includes(movie._id);
-          })
-        );
+        setFavoriteMoviesId(response.data.FavoriteMovies);
       })
       .catch((error) => console.error(error));
   };
 
   useEffect(() => {
     getUser();
-  }, []);
+  });
+
+  // console.log(user);
+  // console.log(movies);
+  // console.log(favoriteMovies);
+
+  // debugger;
+
+  return (
+    <Container>
+      <Row>
+        <Col>
+          <h4>Favorite Movies</h4>
+        </Col>
+      </Row>
+
+      <div>
+        {favoriteMovies.map((m) => {
+          return <p>{m.Title}</p>;
+        })}
+      </div>
+      <Row></Row>
+    </Container>
+  );
 }
