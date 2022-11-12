@@ -28,10 +28,9 @@ export class MovieView extends React.Component {
           </Row>
           <Row className='paragraph'>
             <Col>
-              <span className='label'>Genre: </span>
-              <span className='value'>{movie.Genre.Name}</span>
               <Link to={`/genres/${movie.Genre.Name}`}>
-                <Button variant='link'>Genre</Button>
+                <span className='label'>Genre: </span>
+                <span className='value'>{movie.Genre.Name}</span>
               </Link>
             </Col>
           </Row>
@@ -43,10 +42,9 @@ export class MovieView extends React.Component {
           </Row>
           <Row className='paragraph'>
             <Col>
-              <span className='label'>Director: </span>
-              <span className='value'>{movie.Director.Name}</span>
               <Link to={`/directors/${movie.Director.Name}`}>
-                <Button variant='link'>Director</Button>
+                <span className='label'>Director: </span>
+                <span className='value'>{movie.Director.Name}</span>
               </Link>
             </Col>
           </Row>

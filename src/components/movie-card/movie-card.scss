@@ -1,12 +1,19 @@
-.movie-card {
-  margin-top: 24px;
-}
-
-.movie-card__img {
+.figure {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
   width: 100%;
-  object-fit: cover;
+  margin-bottom: 15px;
+
+  img {
+    display: block;
+    height: 400px;
+    margin: auto;
+  }
 }
 
-.movie-card__content {
-  height: 150px;
+.link {
+  text-align: center;
 }

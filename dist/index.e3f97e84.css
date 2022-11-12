@@ -1,18 +1,23 @@
-.movie-card {
-  margin-top: 24px;
-}
-
-.movie-card__img {
+.figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
   width: 100%;
-  object-fit: cover;
+  margin: auto auto 15px;
+  position: relative;
+  overflow: hidden;
 }
 
-.movie-card__content {
-  height: 150px;
+.figure img {
+  height: 400px;
+  margin: auto;
+  display: block;
+}
+
+.link {
+  text-align: center;
 }
 
 .movie-view {
-  background-color: #fcfcfc;
   padding-top: 12px;
 }
 
@@ -57,7 +62,47 @@
 
 
 
+.director-name {
+  margin-bottom: 6px;
+  font-size: 36px;
+}
 
+.label {
+  font-weight: bold;
+}
+
+.genre-title {
+  margin-bottom: 6px;
+  font-size: 36px;
+}
+
+.fav-movie {
+  margin-bottom: 15px;
+}
+
+.fav-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-movie figure img {
+  height: 360px;
+  margin: auto;
+  display: block;
+}
+
+.fav-movie figure figcaption {
+  text-align: center;
+}
+
+.fav-movie button {
+  margin: auto;
+  display: block;
+}
 
 
 

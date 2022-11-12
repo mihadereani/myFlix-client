@@ -1,27 +1,45 @@
 import React from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 
+import './director-view.scss';
+
 export class DirectorView extends React.Component {
   render() {
     const { director, onBackClick } = this.props;
 
     return (
       <Container>
+        <p></p>
         <Row>
-          <Col>{director.Director.Name}</Col>
+          <Col className='director-name'>{director.Director.Name}</Col>
+        </Row>
+        <p></p>
+        <Row>
+          <Col>
+            <span className='label'>Description: </span> {director.Director.Bio}
+          </Col>
+        </Row>
+        <p></p>
+        <Row>
+          <Col>
+            <span className='label'>Bio: </span>
+            {director.Director.Movies}
+          </Col>
+        </Row>
+        <p></p>
+        <Row>
+          <Col>
+            <span className='label'>Birth: </span>
+            {director.Director.Birth}
+          </Col>
         </Row>
         <Row>
-          <Col>{director.Director.Bio}</Col>
+          <Col>
+            <span className='label'>Death: </span>
+            {director.Director.Death}
+          </Col>
         </Row>
-        <Row>
-          <Col>{director.Director.Movies}</Col>
-        </Row>
-        <Row>
-          <Col>{director.Director.Birth}</Col>
-        </Row>
-        <Row>
-          <Col>{director.Director.Death}</Col>
-        </Row>
+        <p></p>
         <Button
           onClick={() => {
             onBackClick();

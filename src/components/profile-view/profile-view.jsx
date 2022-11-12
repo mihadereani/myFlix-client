@@ -1,8 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Button, Card, Container, Row, Col, Form } from 'react-bootstrap';
+import {
+  Button,
+  Card,
+  Container,
+  Row,
+  Col,
+  Form,
+  Figure,
+} from 'react-bootstrap';
 
 import './profile-view.scss';
+import { Link } from 'react-router-dom';
 
 export function ProfileView({ movies }) {
   const [user, setUser] = useState('');
@@ -203,16 +212,18 @@ export function ProfileView({ movies }) {
       <Row className='mt-5'>
         <Col>
           <Card.Title className='mb-2'>Favorite Movies</Card.Title>
+
           <Row>
-            {favoriteMovies.map((m) => {
+            {favoriteMovies.map(({ ImagePath, Title, _id }) => {
               return (
-                <Col md={6} lg={4} xl={3} key={m._id}>
-                  <Card>
-                    <Card.Img variant='top' src={m.ImagePath}></Card.Img>
-                    <Card.Body>
-                      <Card.Title>{m.Title}</Card.Title>
-                    </Card.Body>
-                  </Card>
+                <Col className='fav-movie' xs={12} md={6} lg={3} key={_id}>
+                  <Figure>
+                    <Link to={`/movies/${_id}`}>
+                      <Figure.Image variant='top' src={ImagePath} alt={Title} />
+                      <Figure.Caption>{Title}</Figure.Caption>
+                    </Link>
+                  </Figure>
+                  <Button variant='secondary'>Remove from list</Button>
                 </Col>
               );
             })}
