@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 
-import { updateUser } from './update-user';
-
 import './profile-view.scss';
 
 export function ProfileView({ movies }) {
@@ -29,7 +27,7 @@ export function ProfileView({ movies }) {
       .catch((error) => console.error(error));
   };
 
-  const handleSubmit = (e) => {
+  const updateUser = (e) => {
     e.preventDefault();
     axios
       .put(
@@ -47,9 +45,7 @@ export function ProfileView({ movies }) {
       )
       .then((res) => {
         localStorage.setItem('user', data.Username);
-        alert(
-          'Update successful! Your changes will be visible after the next login.'
-        );
+        alert('Update successful!');
       })
       .catch((error) => {
         console.error(error);
@@ -67,8 +63,6 @@ export function ProfileView({ movies }) {
 
   return (
     <Container>
-      <updateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
-
       <Row>
         <Col>
           <h4>Favorite Movies</h4>
