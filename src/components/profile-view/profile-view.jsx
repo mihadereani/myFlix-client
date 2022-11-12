@@ -5,7 +5,7 @@ import { Button, Card, Container, Row, Col, Form } from 'react-bootstrap';
 import './profile-view.scss';
 
 export function ProfileView({ movies }) {
-  const [user, setUser] = useState();
+  const [user, setUser] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
@@ -98,82 +98,127 @@ export function ProfileView({ movies }) {
     }
   };
 
+  const handleDelete = (e) => {
+    e.preventDefault();
+    if (confirm('This will delete your profile and cannot be undone!')) {
+      axios
+        .delete(`https://myflixmiha.herokuapp.com/users/${currentUser}`, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((response) => {
+          alert('your account has been deleted.');
+          localStorage.clear();
+          window.open('/', '_self');
+        })
+        .catch((error) => {
+          console.error(error);
+          alert('Unable to delete profile info.');
+        });
+    }
+  };
+
   useEffect(() => {
     getUser();
-  }, []);
+  });
 
-  console.log(user);
+  console.log(user, 'your user data');
 
   return (
     <Container>
       <Row className='mt-5'>
-        <Col md={12}>
-          <Form>
-            <h4>Update profile</h4>
-            <p></p>
-            <Form.Group>
-              <Form.Label>Username:</Form.Label>
-              <Form.Control
-                type='text'
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
-              />
-              {values.usernameErr && <p>{values.usernameErr}</p>}
-            </Form.Group>
+        <Col>
+          <Card>
+            <Card.Body>
+              <Card.Title>Profile info</Card.Title>
+              <Card.Text>
+                Username: {user.Username} <br />
+                Email: {user.Email}
+              </Card.Text>
+            </Card.Body>
+            <Button
+              variant='outline-primary'
+              type='submit'
+              onClick={handleDelete}
+            >
+              Unregister profile
+            </Button>
+          </Card>
+        </Col>
+        <Col md={6}>
+          <Card>
+            <Card.Body>
+              <Card.Title>Update profile</Card.Title>
+              <Form>
+                <Form.Group>
+                  <Form.Label>Username:</Form.Label>
+                  <Form.Control
+                    type='text'
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                  />
+                  {values.usernameErr && <p>{values.usernameErr}</p>}
+                </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Password:</Form.Label>
-              <Form.Control
-                type='password'
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-              />
-              {values.passwordErr && <p>{values.passwordErr}</p>}
-            </Form.Group>
+                <Form.Group>
+                  <Form.Label>Password:</Form.Label>
+                  <Form.Control
+                    type='password'
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                  />
+                  {values.passwordErr && <p>{values.passwordErr}</p>}
+                </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Email:</Form.Label>
-              <Form.Control
-                type='email'
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              {values.emailErr && <p>{values.emailErr}</p>}
-            </Form.Group>
+                <Form.Group>
+                  <Form.Label>Email:</Form.Label>
+                  <Form.Control
+                    type='email'
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                  />
+                  {values.emailErr && <p>{values.emailErr}</p>}
+                </Form.Group>
 
-            <Form.Group>
-              <Form.Label>Birthday:</Form.Label>
-              <Form.Control
-                type='date'
-                name='birthday'
-                onChange={(e) => setBirthday(e.target.value)}
-              />
-            </Form.Group>
-
+                <Form.Group>
+                  <Form.Label>Birthday:</Form.Label>
+                  <Form.Control
+                    type='date'
+                    name='birthday'
+                    onChange={(e) => setBirthday(e.target.value)}
+                    required
+                  />
+                </Form.Group>
+              </Form>
+            </Card.Body>
             <Button variant='primary' type='submit' onClick={handleUpdate}>
               Submit
             </Button>
-          </Form>
+          </Card>
         </Col>
       </Row>
 
-      <Row>
+      <Row className='mt-5'>
         <Col>
-          <h4>Favorite Movies</h4>
+          <Card.Title className='mb-2'>Favorite Movies</Card.Title>
+          <Row>
+            {favoriteMovies.map((m) => {
+              return (
+                <Col md={6} lg={4} xl={3} key={m._id}>
+                  <Card>
+                    <Card.Img variant='top' src={m.ImagePath}></Card.Img>
+                    <Card.Body>
+                      <Card.Title>{m.Title}</Card.Title>
+                    </Card.Body>
+                  </Card>
+                </Col>
+              );
+            })}
+          </Row>
         </Col>
       </Row>
-
-      <div>
-        {favoriteMovies.map((m) => {
-          return (
-            <div>
-              <p>{m.Title}</p>
-              <img src={m.ImagePath} alt='Movie photo' />
-            </div>
-          );
-        })}
-      </div>
-      <Row></Row>
     </Container>
   );
 }
