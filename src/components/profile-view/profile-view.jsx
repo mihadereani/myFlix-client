@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Button, Card, Container, Row, Col } from 'react-bootstrap';
 
+import { updateUser } from './update-user';
+
 import './profile-view.scss';
 
 export function ProfileView({ movies }) {
@@ -27,18 +29,46 @@ export function ProfileView({ movies }) {
       .catch((error) => console.error(error));
   };
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios
+      .put(
+        `https://myflixmiha.herokuapp.com/users/${user}`,
+        {
+          Username: username,
+          Password: password,
+          Email: email,
+          Birthday: birthday,
+        },
+
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((res) => {
+        localStorage.setItem('user', data.Username);
+        alert(
+          'Update successful! Your changes will be visible after the next login.'
+        );
+      })
+      .catch((error) => {
+        console.error(error);
+        alert('Unable to update profile info.');
+      });
+  };
+
+  const handleUpdate = (e) => {};
+
   useEffect(() => {
     getUser();
-  });
+  }, []);
 
-  // console.log(user);
-  // console.log(movies);
-  // console.log(favoriteMovies);
-
-  // debugger;
+  console.log(user);
 
   return (
     <Container>
+      <updateUser handleSubmit={handleSubmit} handleUpdate={handleUpdate} />
+
       <Row>
         <Col>
           <h4>Favorite Movies</h4>
@@ -47,7 +77,12 @@ export function ProfileView({ movies }) {
 
       <div>
         {favoriteMovies.map((m) => {
-          return <p>{m.Title}</p>;
+          return (
+            <div>
+              <p>{m.Title}</p>
+              <img src={m.ImagePath} alt='Movie photo' />
+            </div>
+          );
         })}
       </div>
       <Row></Row>
