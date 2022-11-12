@@ -75,7 +75,7 @@ export function ProfileView({ movies }) {
     if (isReq) {
       axios
         .put(
-          `https://myflixmiha.herokuapp.com/users/${user}`,
+          `https://myflixmiha.herokuapp.com/users/${currentUser}`,
           {
             Username: username,
             Password: password,
@@ -87,8 +87,8 @@ export function ProfileView({ movies }) {
             headers: { Authorization: `Bearer ${token}` },
           }
         )
-        .then((res) => {
-          localStorage.setItem('user', data.Username);
+        .then((response) => {
+          localStorage.setItem('user', response.data.Username);
           alert('Update successful!');
         })
         .catch((error) => {

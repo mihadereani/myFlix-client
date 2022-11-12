@@ -48243,7 +48243,7 @@ function ProfileView({ movies  }) {
     const handleUpdate = (e)=>{
         e.preventDefault();
         const isReq = validate();
-        if (isReq) (0, _axiosDefault.default).put(`https://myflixmiha.herokuapp.com/users/${user}`, {
+        if (isReq) (0, _axiosDefault.default).put(`https://myflixmiha.herokuapp.com/users/${currentUser}`, {
             Username: username,
             Password: password,
             Email: email,
@@ -48252,8 +48252,8 @@ function ProfileView({ movies  }) {
             headers: {
                 Authorization: `Bearer ${token}`
             }
-        }).then((res)=>{
-            localStorage.setItem("user", data.Username);
+        }).then((response)=>{
+            localStorage.setItem("user", response.data.Username);
             alert("Update successful!");
         }).catch((error)=>{
             console.error(error);
