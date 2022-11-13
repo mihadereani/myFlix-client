@@ -20,6 +20,7 @@ export function ProfileView({ movies }) {
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
   const [favoriteMoviesId, setFavoriteMoviesId] = useState([]);
+
   const [values, setValues] = useState({
     nameErr: '',
     usernameErr: '',
@@ -130,8 +131,6 @@ export function ProfileView({ movies }) {
     getUser();
   });
 
-  console.log(user, 'your user data');
-
   return (
     <Container>
       <Row className='mt-5'>
@@ -223,7 +222,9 @@ export function ProfileView({ movies }) {
                       <Figure.Caption>{Title}</Figure.Caption>
                     </Link>
                   </Figure>
-                  <Button variant='secondary'>Remove from list</Button>
+                  <Button variant='secondary' type='submit'>
+                    Remove from list
+                  </Button>
                 </Col>
               );
             })}
