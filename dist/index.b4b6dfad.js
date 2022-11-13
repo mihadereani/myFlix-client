@@ -48602,6 +48602,19 @@ function ProfileView({ movies  }) {
                                         /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Button), {
                                             variant: "secondary",
                                             type: "submit",
+                                            onClick: (e)=>{
+                                                e.preventDefault();
+                                                (0, _axiosDefault.default).delete(`https://myflixmiha.herokuapp.com/users/${currentUser}/movies/${_id}`, {
+                                                    headers: {
+                                                        Authorization: `Bearer ${token}`
+                                                    }
+                                                }).then((response)=>{
+                                                    alert("Favorite movie has been removed.");
+                                                }).catch((error)=>{
+                                                    console.error(error);
+                                                    alert("Unable to remove favorite movie.");
+                                                });
+                                            },
                                             children: "Remove from list"
                                         }, void 0, false, {
                                             fileName: "src/components/profile-view/profile-view.jsx",

@@ -223,7 +223,27 @@ export function ProfileView({ movies }) {
                       <Figure.Caption>{Title}</Figure.Caption>
                     </Link>
                   </Figure>
-                  <Button variant='secondary' type='submit'>
+                  <Button
+                    variant='secondary'
+                    type='submit'
+                    onClick={(e) => {
+                      e.preventDefault();
+                      axios
+                        .delete(
+                          `https://myflixmiha.herokuapp.com/users/${currentUser}/movies/${_id}`,
+                          {
+                            headers: { Authorization: `Bearer ${token}` },
+                          }
+                        )
+                        .then((response) => {
+                          alert('Favorite movie has been removed.');
+                        })
+                        .catch((error) => {
+                          console.error(error);
+                          alert('Unable to remove favorite movie.');
+                        });
+                    }}
+                  >
                     Remove from list
                   </Button>
                 </Col>
