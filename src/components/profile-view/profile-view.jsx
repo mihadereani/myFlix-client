@@ -142,14 +142,14 @@ export function ProfileView({ movies }) {
                 Username: {user.Username} <br />
                 Email: {user.Email}
               </Card.Text>
+              <Button
+                variant='outline-primary'
+                type='submit'
+                onClick={handleDelete}
+              >
+                Unregister profile
+              </Button>
             </Card.Body>
-            <Button
-              variant='outline-primary'
-              type='submit'
-              onClick={handleDelete}
-            >
-              Unregister profile
-            </Button>
           </Card>
         </Col>
         <Col md={6}>
@@ -200,10 +200,11 @@ export function ProfileView({ movies }) {
                   />
                 </Form.Group>
               </Form>
+              <p></p>
+              <Button variant='primary' type='submit' onClick={handleUpdate}>
+                Submit
+              </Button>
             </Card.Body>
-            <Button variant='primary' type='submit' onClick={handleUpdate}>
-              Submit
-            </Button>
           </Card>
         </Col>
       </Row>
