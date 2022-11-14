@@ -5,15 +5,14 @@ export function NavBar() {
   console.log(currentUser);
 
   return (
-    <Navbar bg='primary' variant='dark' expand='md'>
+    <Navbar bg='primary' variant='dark' expand='sm' fixed='top'>
       <Container>
         <Navbar.Brand href='/'>myFlix</Navbar.Brand>
-        <Navbar.Toggle aria-controls='basic-navbar-nav' />
         <Navbar.Collapse id='basic-navbar-nav'>
           <Nav className='me-auto'>
             <Nav.Link href='/'>Movies</Nav.Link>
             <Nav.Link href={`/users/${currentUser}`}>Profile</Nav.Link>
-            <Nav.Link href='#link'>Log out</Nav.Link>
+            <Nav.Link href='/'>Log out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

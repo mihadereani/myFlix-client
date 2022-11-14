@@ -1,14 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import {
-  Button,
-  Card,
-  Container,
-  Row,
-  Col,
-  Form,
-  Figure,
-} from 'react-bootstrap';
+import { Button, Card, Container, Row, Col, Form } from 'react-bootstrap';
 
 import './profile-view.scss';
 
