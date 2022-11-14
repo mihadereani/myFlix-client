@@ -19,7 +19,7 @@ export function ProfileView({ movies }) {
   const [password, setPassword] = useState('');
   const [email, setEmail] = useState('');
   const [birthday, setBirthday] = useState('');
-  const [favoriteMoviesId, setFavoriteMoviesId] = useState([]);
+  const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   const [values, setValues] = useState({
     nameErr: '',
@@ -27,10 +27,6 @@ export function ProfileView({ movies }) {
     passwordErr: '',
     emailErr: '',
   });
-
-  const favoriteMovies = favoriteMoviesId.map((movieId) =>
-    movies.find((m) => m._id === movieId)
-  );
 
   // console.log(favoriteMovies, 'favorites');
   // console.log(user, 'current');
@@ -77,8 +73,12 @@ export function ProfileView({ movies }) {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
+        const favoriteMoviesId = response.data.FavoriteMovies;
+        const favoriteItems = favoriteMoviesId.map((movieId) =>
+          movies.find((m) => m._id === movieId)
+        );
         setUser(response.data);
-        setFavoriteMoviesId(response.data.FavoriteMovies);
+        setFavoriteMovies(favoriteItems);
       })
       .catch((error) => console.error(error));
   };

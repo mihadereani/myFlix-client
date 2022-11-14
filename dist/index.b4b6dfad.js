@@ -48211,14 +48211,13 @@ function ProfileView({ movies  }) {
     const [password, setPassword] = (0, _react.useState)("");
     const [email, setEmail] = (0, _react.useState)("");
     const [birthday, setBirthday] = (0, _react.useState)("");
-    const [favoriteMoviesId, setFavoriteMoviesId] = (0, _react.useState)([]);
+    const [favoriteMovies, setFavoriteMovies] = (0, _react.useState)([]);
     const [values, setValues] = (0, _react.useState)({
         nameErr: "",
         usernameErr: "",
         passwordErr: "",
         emailErr: ""
     });
-    const favoriteMovies = favoriteMoviesId.map((movieId)=>movies.find((m)=>m._id === movieId));
     // console.log(favoriteMovies, 'favorites');
     // console.log(user, 'current');
     // debugger;
@@ -48271,8 +48270,10 @@ function ProfileView({ movies  }) {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
+            const favoriteMoviesId = response.data.FavoriteMovies;
+            const favoriteItems = favoriteMoviesId.map((movieId)=>movies.find((m)=>m._id === movieId));
             setUser(response.data);
-            setFavoriteMoviesId(response.data.FavoriteMovies);
+            setFavoriteMovies(favoriteItems);
         }).catch((error)=>console.error(error));
     };
     const handleUpdate = (e)=>{
@@ -48656,7 +48657,7 @@ function ProfileView({ movies  }) {
         columnNumber: 5
     }, this);
 }
-_s(ProfileView, "CtWWcESWUeccaBhlImMYfTA/Aa8=");
+_s(ProfileView, "0iZMyI3P/jBQjADgL+O0zVzxaUY=");
 _c = ProfileView;
 var _c;
 $RefreshReg$(_c, "ProfileView");
