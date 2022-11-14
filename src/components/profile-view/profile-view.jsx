@@ -32,6 +32,10 @@ export function ProfileView({ movies }) {
     movies.find((m) => m._id === movieId)
   );
 
+  // console.log(favoriteMovies, 'favorites');
+  // console.log(user, 'current');
+  // debugger;
+
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
@@ -98,8 +102,10 @@ export function ProfileView({ movies }) {
           }
         )
         .then((response) => {
-          localStorage.setItem('user', response.data.Username);
+          const data = response.data;
+          localStorage.setItem('user', data.Username);
           alert('Update successful!');
+          window.open(`/users/${data.Username}`, '_self');
         })
         .catch((error) => {
           console.error(error);
@@ -214,13 +220,17 @@ export function ProfileView({ movies }) {
           <Card.Title className='mb-2'>Favorite Movies</Card.Title>
 
           <Row>
-            {favoriteMovies.map(({ ImagePath, Title, _id }) => {
+            {favoriteMovies.map((m) => {
               return (
-                <Col className='fav-movie' xs={12} md={6} lg={3} key={_id}>
+                <Col className='fav-movie' xs={12} md={6} lg={3} key={m._id}>
                   <Figure>
-                    <Link to={`/movies/${_id}`}>
-                      <Figure.Image variant='top' src={ImagePath} alt={Title} />
-                      <Figure.Caption>{Title}</Figure.Caption>
+                    <Link to={`/movies/${m._id}`}>
+                      <Figure.Image
+                        variant='top'
+                        src={m.ImagePath}
+                        alt={m.Title}
+                      />
+                      <Figure.Caption>{m.Title}</Figure.Caption>
                     </Link>
                   </Figure>
                   <Button
@@ -230,7 +240,7 @@ export function ProfileView({ movies }) {
                       e.preventDefault();
                       axios
                         .delete(
-                          `https://myflixmiha.herokuapp.com/users/${currentUser}/movies/${_id}`,
+                          `https://myflixmiha.herokuapp.com/users/${currentUser}/movies/${m._id}`,
                           {
                             headers: { Authorization: `Bearer ${token}` },
                           }
