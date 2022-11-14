@@ -1,5 +1,4 @@
 import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 
 export function NavBar() {
   const currentUser = localStorage.getItem('user');
