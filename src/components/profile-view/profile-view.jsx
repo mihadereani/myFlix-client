@@ -75,12 +75,11 @@ export function ProfileView({ movies }) {
       })
       .then((response) => {
         const favoriteMoviesId = response.data.FavoriteMovies;
-        const favoriteItems = movies.map((m) => m);
-        // console.log(favoriteMoviesId, 'id');
-        // console.log(favoriteItems, 'filmi');
-        // debugger;
         setUser(response.data);
-        setFavoriteMovies(favoriteItems);
+        favoriteMoviesId.map((m) => {
+          const favoriteItems = movies.filter((favM) => favM._id === m);
+          setFavoriteMovies(favoriteItems);
+        });
       })
       .catch((error) => console.error(error));
   };
@@ -216,7 +215,10 @@ export function ProfileView({ movies }) {
           </Card>
         </Col>
       </Row>
-      <FavoriteMovies favoriteMovies={favoriteMovies} />
+      <FavoriteMovies
+        favoriteMovies={favoriteMovies}
+        currentUser={currentUser}
+      />
     </Container>
   );
 }

@@ -12,7 +12,8 @@ import {
   Figure,
 } from 'react-bootstrap';
 
-export function FavoriteMovies({ favoriteMovies }) {
+export function FavoriteMovies({ favoriteMovies, currentUser }) {
+  const token = localStorage.getItem('token');
   console.log(favoriteMovies);
   return (
     <Row className='mt-5'>
