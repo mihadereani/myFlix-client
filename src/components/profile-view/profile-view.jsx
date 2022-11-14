@@ -75,9 +75,10 @@ export function ProfileView({ movies }) {
       })
       .then((response) => {
         const favoriteMoviesId = response.data.FavoriteMovies;
-        const favoriteItems = favoriteMoviesId.map((movieId) =>
-          movies.find((m) => m._id === movieId)
-        );
+        const favoriteItems = movies.map((m) => m);
+        // console.log(favoriteMoviesId, 'id');
+        // console.log(favoriteItems, 'filmi');
+        // debugger;
         setUser(response.data);
         setFavoriteMovies(favoriteItems);
       })
