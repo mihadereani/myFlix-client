@@ -54,15 +54,22 @@ export class MovieView extends React.Component {
               <span className='value'>{movie.Director.Bio}</span>
             </Col>
           </Row>
-          <Button
-            className='button'
-            onClick={() => {
-              onBackClick();
-            }}
-            variant='primary'
-          >
-            Back
-          </Button>
+          <Row>
+            <Col>
+              <Button className='button' variant='outline-primary'>
+                Add to your favorite movies
+              </Button>
+              <Button
+                className='button ms-2'
+                onClick={() => {
+                  onBackClick();
+                }}
+                variant='primary'
+              >
+                Back
+              </Button>
+            </Col>
+          </Row>
         </Col>
       </Row>
     );
