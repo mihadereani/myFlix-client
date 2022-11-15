@@ -21,10 +21,6 @@ export function ProfileView({ movies }) {
     emailErr: '',
   });
 
-  // console.log(favoriteMovies, 'favorites');
-  // console.log(user, 'current');
-  // debugger;
-
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
@@ -89,7 +85,6 @@ export function ProfileView({ movies }) {
             Email: email,
             Birthday: birthday,
           },
-
           {
             headers: { Authorization: `Bearer ${token}` },
           }
