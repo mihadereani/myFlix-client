@@ -23,9 +23,14 @@ export function ProfileView({ movies }) {
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
-  useEffect(() => {
-    getUser();
-  }, []);
+  const favoriteMovies = user.FavoriteMovies?.map((ids) =>
+    movies.find((movie) => movie._id === ids)
+  );
+
+  console.log('MOVIES: ', movies);
+  console.log('USER: ', user);
+  console.log('FAVORITEMOVIESIDS: ', user.FavoriteMovies);
+  console.log('FAVORITEMOVIES: ', favoriteMovies);
 
   const validate = () => {
     let isReq = true;
@@ -82,6 +87,7 @@ export function ProfileView({ movies }) {
             Password: password,
             Email: email,
             Birthday: birthday,
+            FavoriteMovies: favoriteMovies,
           },
           {
             headers: { Authorization: `Bearer ${token}` },
@@ -90,7 +96,9 @@ export function ProfileView({ movies }) {
         .then((response) => {
           const data = response.data;
           localStorage.setItem('user', data.Username);
+          setUser(data);
           alert('Update successful!');
+
           window.open(`/users/${data.Username}`, '_self');
         })
         .catch((error) => {
@@ -118,6 +126,10 @@ export function ProfileView({ movies }) {
         });
     }
   };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <Container>
@@ -196,7 +208,7 @@ export function ProfileView({ movies }) {
           </Card>
         </Col>
       </Row>
-      <FavoriteMovies user={user} movies={movies} />
+      <FavoriteMovies favoriteMovies={favoriteMovies} user={user} />
     </Container>
   );
 }
