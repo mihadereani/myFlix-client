@@ -98,7 +98,6 @@ export function ProfileView({ movies }) {
           localStorage.setItem('user', data.Username);
           setUser(data);
           alert('Update successful!');
-
           window.open(`/users/${data.Username}`, '_self');
         })
         .catch((error) => {

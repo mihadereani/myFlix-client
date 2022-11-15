@@ -40,6 +40,7 @@ export function FavoriteMovies({ movies, user, favoriteMovies }) {
                       )
                       .then((response) => {
                         alert('Favorite movie has been removed.');
+                        window.open(`/users/${currentUser}`, '_self');
                       })
                       .catch((error) => {
                         console.error(error);

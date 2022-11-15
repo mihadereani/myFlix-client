@@ -65,8 +65,6 @@ export function RegistrationView(props) {
           Birthday: birthday,
         })
         .then((response) => {
-          const data = response.data;
-          console.log(data);
           window.open('/', '_self');
         })
         .catch((e) => {
@@ -125,7 +123,7 @@ export function RegistrationView(props) {
           </Button>
           <p></p>
           <p>
-            Already registered <Link to={'/'}>sign in</Link> hree{' '}
+            Already registered <Link to={'/'}>sign in</Link> here{' '}
           </p>
         </Form>
       </Col>
