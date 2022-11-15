@@ -48270,6 +48270,9 @@ function ProfileView({ movies  }) {
     });
     const currentUser = localStorage.getItem("user");
     const token = localStorage.getItem("token");
+    (0, _react.useEffect)(()=>{
+        getUser();
+    }, []);
     const validate = ()=>{
         let isReq = true;
         if (!username) setValues({
@@ -48357,9 +48360,6 @@ function ProfileView({ movies  }) {
             alert("Unable to delete profile info.");
         });
     };
-    (0, _react.useEffect)(()=>{
-        getUser();
-    });
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Container), {
         children: [
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Row), {
@@ -48647,7 +48647,6 @@ function FavoriteMovies({ movies , user  }) {
     console.log(user);
     console.log(user.FavoriteMovies);
     console.log(favoriteMoviesId);
-    debugger;
     // favoriteMoviesId.map((favoriteIds) => {
     //   const favoriteMovies = movies.find((m) => m._id === favoriteIds);
     //   console.log(favoriteMovies);

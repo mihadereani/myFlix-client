@@ -23,6 +23,10 @@ export function ProfileView({ movies }) {
   const currentUser = localStorage.getItem('user');
   const token = localStorage.getItem('token');
 
+  useEffect(() => {
+    getUser();
+  }, []);
+
   const validate = () => {
     let isReq = true;
     if (!username) {
@@ -114,10 +118,6 @@ export function ProfileView({ movies }) {
         });
     }
   };
-
-  useEffect(() => {
-    getUser();
-  });
 
   return (
     <Container>

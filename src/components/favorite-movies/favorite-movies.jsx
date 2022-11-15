@@ -13,7 +13,7 @@ export function FavoriteMovies({ movies, user }) {
   console.log(user.FavoriteMovies);
 
   console.log(favoriteMoviesId);
-  debugger;
+
   // favoriteMoviesId.map((favoriteIds) => {
   //   const favoriteMovies = movies.find((m) => m._id === favoriteIds);
   //   console.log(favoriteMovies);
