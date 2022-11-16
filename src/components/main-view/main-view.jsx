@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import { NavBar } from '../navbar/navbar';
 
 import {
   BrowserRouter as Router,
@@ -84,6 +85,7 @@ export class MainView extends React.Component {
               if (movies.length === 0) return <div className='main-view' />;
               return (
                 <Container>
+                  <NavBar />
                   <Row>
                     <Col>
                       <Link to={`users/${user}`}>{user}</Link>
@@ -121,6 +123,7 @@ export class MainView extends React.Component {
               if (!user) return <Redirect to='/' />;
               return (
                 <Col>
+                  <NavBar />
                   <ProfileView
                     user={user}
                     movies={movies}
@@ -144,6 +147,7 @@ export class MainView extends React.Component {
               if (movies.length === 0) return <div className='main-view' />;
               return (
                 <Col md={8}>
+                  <NavBar />
                   <MovieView
                     movie={movies.find((m) => m._id === match.params.movieId)}
                     onBackClick={() => history.goBack()}
@@ -166,6 +170,7 @@ export class MainView extends React.Component {
               if (movies.length === 0) return <div className='main-view' />;
               return (
                 <Col md={8}>
+                  <NavBar />
                   <DirectorView
                     director={movies.find(
                       (m) => m.Director.Name === match.params.name
@@ -190,6 +195,7 @@ export class MainView extends React.Component {
               if (movies.length === 0) return <div className='main-view' />;
               return (
                 <Col md={8}>
+                  <NavBar />
                   <GenreView
                     genre={movies.find(
                       (m) => m.Genre.Name === match.params.name
