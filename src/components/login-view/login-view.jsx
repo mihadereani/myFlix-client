@@ -18,6 +18,7 @@ export function LoginView(props) {
       .then((response) => {
         const data = response.data;
         props.onLoggedIn(data);
+        window.open('/', '_self');
       })
       .catch((e) => {
         alert('no such user');
