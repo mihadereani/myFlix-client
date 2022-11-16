@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar } from 'react-bootstrap';
+import { Container, Nav, Navbar, CloseButton } from 'react-bootstrap';
 
 export function NavBar() {
   const currentUser = localStorage.getItem('user');
@@ -9,10 +9,10 @@ export function NavBar() {
       <Container>
         <Navbar.Brand href='/'>myFlix</Navbar.Brand>
         <Navbar.Collapse id='basic-navbar-nav'>
-          <Nav className='me-auto'>
+          <Nav>
             <Nav.Link href='/'>Movies</Nav.Link>
             <Nav.Link href={`/users/${currentUser}`}>Profile</Nav.Link>
-            <Nav.Link href='/'>Log out</Nav.Link>
+            <Nav.Link href='/logout'>Log out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>

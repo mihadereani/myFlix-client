@@ -200,6 +200,21 @@ export class MainView extends React.Component {
               );
             }}
           />
+
+          <Route
+            exact
+            path='/logout'
+            render={() => {
+              return (
+                localStorage.clear(),
+                (
+                  <Col>
+                    <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                  </Col>
+                )
+              );
+            }}
+          />
         </Row>
       </Router>
     );
