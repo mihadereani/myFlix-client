@@ -56,6 +56,11 @@ export function MovieView({ movie, onBackClick }) {
   return (
     <Row className='movie-view'>
       <Col>
+        <Row>
+          <Col>
+            <div className='space' />
+          </Col>
+        </Row>
         <Row className='movie-poster'>
           <img src={movie.ImagePath} />
         </Row>

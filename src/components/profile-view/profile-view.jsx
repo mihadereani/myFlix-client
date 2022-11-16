@@ -134,6 +134,11 @@ export function ProfileView({ movies }) {
 
   return (
     <Container>
+      <Row>
+        <Col>
+          <div className='space' />
+        </Col>
+      </Row>
       <Row className='mt-5'>
         <Col>
           <Card>

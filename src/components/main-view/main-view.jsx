@@ -21,6 +21,8 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import { Container } from 'react-bootstrap';
 
+import './main-view.scss';
+
 export class MainView extends React.Component {
   constructor() {
     super();
@@ -88,7 +90,7 @@ export class MainView extends React.Component {
                   <NavBar />
                   <Row>
                     <Col>
-                      <Link to={`users/${user}`}>{user}</Link>
+                      <div className='space' />
                     </Col>
                   </Row>
                   <Row>

@@ -9,14 +9,18 @@ export class DirectorView extends React.Component {
 
     return (
       <Container>
-        <p></p>
+        <Row>
+          <Col>
+            <div className='space' />
+          </Col>
+        </Row>
         <Row>
           <Col className='director-name'>{director.Director.Name}</Col>
         </Row>
         <p></p>
         <Row>
           <Col>
-            <span className='label'>Description: </span> {director.Director.Bio}
+            <span className='label'>Bio: </span> {director.Director.Bio}
           </Col>
         </Row>
         <p></p>

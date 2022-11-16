@@ -10,6 +10,11 @@ export class GenreView extends React.Component {
     return (
       <Container>
         <Row>
+          <Col>
+            <div className='space' />
+          </Col>
+        </Row>
+        <Row>
           <Col className='genre-title'>{genre.Genre.Name}</Col>
         </Row>
         <Row>
