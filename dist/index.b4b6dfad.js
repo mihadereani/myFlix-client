@@ -48133,7 +48133,7 @@ class DirectorView extends (0, _reactDefault.default).Component {
                         children: [
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("span", {
                                 className: "label",
-                                children: "Bio: "
+                                children: "Movies: "
                             }, void 0, false, {
                                 fileName: "src/components/director-view/director-view.jsx",
                                 lineNumber: 29,
