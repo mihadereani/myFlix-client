@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Row, Col, Button } from 'react-bootstrap';
 import axios from 'axios';
@@ -9,26 +9,49 @@ import './movie-view.scss';
 export function MovieView({ movie, onBackClick }) {
   const token = localStorage.getItem('token');
   const currentUser = localStorage.getItem('user');
+  const [favoriteIds, setFavoriteIds] = useState([]);
+
+  console.log('FAVORITEIDS: ', favoriteIds);
 
   const addMovieToFavorites = (e) => {
     e.preventDefault();
-    axios
-      .post(
-        `https://myflixmiha.herokuapp.com/users/${currentUser}/movies/${movie._id}`,
-        {
-          FavoriteMovies: movie._id,
-        },
-        {
-          headers: { Authorization: `Bearer ${token}` },
-        }
-      )
-      .then((response) => {
-        alert(`Movie ${movie.Title} added to favorite movies.`);
-      })
-      .catch((e) => {
-        console.log('Unable to add movie to favforites.');
-      });
+    if (movie._id !== favoriteIds.find((m) => m === movie._id)) {
+      axios
+        .post(
+          `https://myflixmiha.herokuapp.com/users/${currentUser}/movies/${movie._id}`,
+          {
+            FavoriteMovies: movie._id,
+          },
+          {
+            headers: { Authorization: `Bearer ${token}` },
+          }
+        )
+        .then((response) => {
+          alert(`Movie ${movie.Title} added to favorite movies.`);
+          window.open(`/movies/${movie._id}`, '_self');
+        })
+        .catch((e) => {
+          console.log('Unable to add movie to favforites.');
+        });
+    } else {
+      alert('Movie is allready in your favorite movies list.');
+    }
   };
+
+  const getUser = () => {
+    axios
+      .get(`https://myflixmiha.herokuapp.com/users/${currentUser}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+      .then((response) => {
+        setFavoriteIds(response.data.FavoriteMovies);
+      })
+      .catch((error) => console.error(error));
+  };
+
+  useEffect(() => {
+    getUser();
+  }, []);
 
   return (
     <Row className='movie-view'>
