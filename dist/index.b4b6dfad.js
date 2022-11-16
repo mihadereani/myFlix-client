@@ -27299,7 +27299,7 @@ class MainView extends (0, _reactDefault.default).Component {
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
                         exact: true,
-                        path: "/logout",
+                        path: "/login",
                         render: ()=>{
                             return localStorage.clear(), /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _colDefault.default), {
                                 children: /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _loginView.LoginView), {
@@ -48843,7 +48843,7 @@ function NavBar() {
                                 columnNumber: 13
                             }, this),
                             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Nav).Link, {
-                                href: "/logout",
+                                href: "/login",
                                 children: "Log out"
                             }, void 0, false, {
                                 fileName: "src/components/navbar/navbar.jsx",

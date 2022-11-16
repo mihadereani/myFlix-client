@@ -203,7 +203,7 @@ export class MainView extends React.Component {
 
           <Route
             exact
-            path='/logout'
+            path='/login'
             render={() => {
               return (
                 localStorage.clear(),

@@ -12,7 +12,7 @@ export function NavBar() {
           <Nav>
             <Nav.Link href='/'>Movies</Nav.Link>
             <Nav.Link href={`/users/${currentUser}`}>Profile</Nav.Link>
-            <Nav.Link href='/logout'>Log out</Nav.Link>
+            <Nav.Link href='/login'>Log out</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
