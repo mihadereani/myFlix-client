@@ -75,7 +75,7 @@ export function RegistrationView(props) {
 
   return (
     <Row className='mt-5'>
-      <Col md={12}>
+      <Col md={8}>
         <Form>
           <h3>Sign Up</h3>
           <p></p>
@@ -118,7 +118,12 @@ export function RegistrationView(props) {
             />
           </Form.Group>
 
-          <Button variant='primary' type='submit' onClick={handleRegister}>
+          <Button
+            className='mt-4'
+            variant='primary'
+            type='submit'
+            onClick={handleRegister}
+          >
             Submit
           </Button>
           <p></p>
