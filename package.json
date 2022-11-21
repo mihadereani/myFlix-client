@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mihadereani/myFlix-client#readme",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.0",
     "axios": "^1.1.3",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -24,7 +25,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.0.5",
     "react-router-dom": "^5.3.0",
-    "redux": "^4.2.0"
+    "redux": "^4.2.0",
+    "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
