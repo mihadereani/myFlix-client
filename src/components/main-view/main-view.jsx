@@ -25,11 +25,13 @@ import { Container } from 'react-bootstrap';
 
 import './main-view.scss';
 
-export class MainView extends React.Component {
+import { setMovies } from '../../actions/actions';
+import MoviesList from '../movies-list/movies-list';
+
+class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
       user: null,
     };
   }
@@ -50,9 +52,7 @@ export class MainView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
+        this.props.setMovies(response.data);
       })
       .catch((error) => {
         console.log(error);
@@ -71,7 +71,8 @@ export class MainView extends React.Component {
   }
 
   render() {
-    const { movies, user } = this.state;
+    const { movies } = this.props;
+    const { user } = this.state;
 
     return (
       <Router>
@@ -87,23 +88,7 @@ export class MainView extends React.Component {
                   </Col>
                 );
               if (movies.length === 0) return <div className='main-view' />;
-              return (
-                <Container>
-                  <NavBar />
-                  <Row>
-                    <Col>
-                      <div className='space' />
-                    </Col>
-                  </Row>
-                  <Row>
-                    {movies.map((m) => (
-                      <Col md={6} lg={4} xl={3} key={m._id}>
-                        <MovieCard movie={m} />
-                      </Col>
-                    ))}
-                  </Row>
-                </Container>
-              );
+              return <MoviesList movies={movies} />;
             }}
           />
 
@@ -230,3 +215,9 @@ export class MainView extends React.Component {
     );
   }
 }
+
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
+
+export default connect(mapStateToProps, { setMovies })(MainView);
