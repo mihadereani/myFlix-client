@@ -5,8 +5,6 @@ import { Button, Card, Container, Row, Col, Form } from 'react-bootstrap';
 import './profile-view.scss';
 
 import { FavoriteMovies } from '../favorite-movies/favorite-movies';
-import { MovieView } from '../movie-view/movie-view';
-import { MainView } from '../main-view/main-view';
 
 export function ProfileView({ movies }) {
   const [user, setUser] = useState('');
