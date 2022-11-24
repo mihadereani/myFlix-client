@@ -27,10 +27,18 @@ export function ProfileView({ movies }) {
     movies.find((movie) => movie._id === ids)
   );
 
+  const date = new Date(user.Birthday);
+  const yyyy = date.getFullYear();
+  const mm = date.getMonth() + 1;
+  const dd = date.getDate();
+  const formattedDate = dd + '/' + mm + '/' + yyyy;
+
   console.log('MOVIES: ', movies);
   console.log('USER: ', user);
   console.log('FAVORITEMOVIESIDS: ', user.FavoriteMovies);
   console.log('FAVORITEMOVIES: ', favoriteMovies);
+  console.log('BIRTHDAY: ', user.Birthday);
+  console.log('FORMATTEDDATE: ', formattedDate);
 
   const validate = () => {
     let isReq = true;
@@ -144,7 +152,8 @@ export function ProfileView({ movies }) {
               <Card.Title>Profile info</Card.Title>
               <Card.Text>
                 Username: {user.Username} <br />
-                Email: {user.Email}
+                Email: {user.Email} <br />
+                Birthday: {formattedDate}
               </Card.Text>
               <Button
                 variant='outline-primary'
