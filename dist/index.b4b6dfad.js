@@ -50647,9 +50647,37 @@ function movies(state = [], action) {
             return state;
     }
 }
+function user(state = {}, action) {
+    switch(action.type){
+        case 0, _actions.SET_USER:
+            return action.value;
+        case 0, _actions.UPDATE_USER:
+            return action.value;
+        case 0, _actions.DELETE_USER:
+            return action.value;
+        case 0, _actions.ADD_FAVORITE:
+            return {
+                ...state,
+                FavoriteMovies: [
+                    ...state?.FavoriteMovies,
+                    action.value
+                ]
+            };
+        case 0, _actions.DELETE_FAVORITE:
+            return {
+                ...state,
+                FavoriteMovies: [
+                    ...state?.FavoriteMovies.filter((movieId)=>movieId !== action.value), 
+                ]
+            };
+        default:
+            return state;
+    }
+}
 const moviesApp = (0, _redux.combineReducers)({
     visibilityFilter,
-    movies
+    movies,
+    user
 });
 exports.default = moviesApp;
 
