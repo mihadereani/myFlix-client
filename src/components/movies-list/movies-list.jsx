@@ -1,5 +1,6 @@
 import React from 'react';
 import { Col } from 'react-bootstrap';
+import { NavBar } from '../navbar/navbar';
 import { connect } from 'react-redux';
 
 import VisibilityFilterInput from '../visibility-filter-input/visibility-filter-input';
@@ -24,11 +25,16 @@ function MoviesList(props) {
 
   return (
     <>
+      <NavBar />
+      <p></p>
+      <p></p>
+      <p></p>
+      <h1></h1>
       <Col md={12} style={{ margin: '1em' }}>
         <VisibilityFilterInput visibilityFilter={visibilityFilter} />
       </Col>
       {filteredMovies.map((m) => (
-        <Col md={3} key={m._id}>
+        <Col md={6} lg={4} xl={3} key={m._id}>
           <MovieCard movie={m} />
         </Col>
       ))}

@@ -1,4 +1,4 @@
-import { Container, Nav, Navbar, CloseButton } from 'react-bootstrap';
+import { Container, Nav, Navbar } from 'react-bootstrap';
 
 export function NavBar() {
   const currentUser = localStorage.getItem('user');
