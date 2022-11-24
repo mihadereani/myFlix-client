@@ -27171,7 +27171,7 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 78,
+                        lineNumber: 73,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27187,7 +27187,7 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 93,
+                        lineNumber: 88,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27210,7 +27210,7 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 106,
+                        lineNumber: 101,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27238,7 +27238,7 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 124,
+                        lineNumber: 119,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27266,7 +27266,7 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 147,
+                        lineNumber: 142,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27294,7 +27294,7 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 172,
+                        lineNumber: 167,
                         columnNumber: 11
                     }, this),
                     /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactRouterDom.Route), {
@@ -27309,18 +27309,18 @@ class MainView extends (0, _reactDefault.default).Component {
                         }
                     }, void 0, false, {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 197,
+                        lineNumber: 192,
                         columnNumber: 11
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 77,
+                lineNumber: 72,
                 columnNumber: 9
             }, this)
         }, void 0, false, {
             fileName: "src/components/main-view/main-view.jsx",
-            lineNumber: 76,
+            lineNumber: 71,
             columnNumber: 7
         }, this);
     }
@@ -50377,11 +50377,26 @@ var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES);
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER);
-parcelHelpers.export(exports, "setMoviest", ()=>setMoviest);
+parcelHelpers.export(exports, "SET_USER", ()=>SET_USER);
+parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER);
+parcelHelpers.export(exports, "DELETE_USER", ()=>DELETE_USER);
+parcelHelpers.export(exports, "ADD_FAVORITE", ()=>ADD_FAVORITE);
+parcelHelpers.export(exports, "DELETE_FAVORITE", ()=>DELETE_FAVORITE);
+parcelHelpers.export(exports, "setMovies", ()=>setMovies);
 parcelHelpers.export(exports, "setFilter", ()=>setFilter);
+parcelHelpers.export(exports, "setUser", ()=>setUser);
+parcelHelpers.export(exports, "updateUser", ()=>updateUser);
+parcelHelpers.export(exports, "deleteUser", ()=>deleteUser);
+parcelHelpers.export(exports, "addFavorite", ()=>addFavorite);
+parcelHelpers.export(exports, "deleteFavorite", ()=>deleteFavorite);
 const SET_MOVIES = "SET_MOVIES";
 const SET_FILTER = "SET_FILTER";
-function setMoviest(value) {
+const SET_USER = "SET_USER";
+const UPDATE_USER = "UPDATE_USER";
+const DELETE_USER = "DELETE_USER";
+const ADD_FAVORITE = "ADD_FAVORITE";
+const DELETE_FAVORITE = "DELETE_FAVORITE";
+function setMovies(value) {
     return {
         type: SET_MOVIES,
         value
@@ -50390,6 +50405,36 @@ function setMoviest(value) {
 function setFilter(value) {
     return {
         type: SET_FILTER,
+        value
+    };
+}
+function setUser(value) {
+    return {
+        type: SET_USER,
+        value
+    };
+}
+function updateUser(value) {
+    return {
+        type: UPDATE_USER,
+        value
+    };
+}
+function deleteUser(value) {
+    return {
+        type: DELETE_USER,
+        value
+    };
+}
+function addFavorite(value) {
+    return {
+        type: ADD_FAVORITE,
+        value
+    };
+}
+function deleteFavorite(value) {
+    return {
+        type: DELETE_FAVORITE,
         value
     };
 }
@@ -50474,7 +50519,45 @@ $RefreshReg$(_c, "MoviesList");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-redux":"bdVon","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","../visibility-filter-input/visibility-filter-input":"gtTIg"}],"bwuIu":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-bootstrap":"3AD9A","react-redux":"bdVon","../visibility-filter-input/visibility-filter-input":"gtTIg","../movie-card/movie-card":"bwuIu","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"gtTIg":[function(require,module,exports) {
+var $parcel$ReactRefreshHelpers$dea5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
+var prevRefreshReg = window.$RefreshReg$;
+var prevRefreshSig = window.$RefreshSig$;
+$parcel$ReactRefreshHelpers$dea5.prelude(module);
+
+try {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _jsxDevRuntime = require("react/jsx-dev-runtime");
+var _react = require("react");
+var _reactDefault = parcelHelpers.interopDefault(_react);
+var _reactRedux = require("react-redux");
+var _reactBootstrap = require("react-bootstrap");
+var _actions = require("../../actions/actions");
+function VisibilityFilterInput(props) {
+    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
+        onChange: (e)=>props.setFilter(e.target.value),
+        value: props.visibilityFilter,
+        placeholder: "filter"
+    }, void 0, false, {
+        fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
+        lineNumber: 10,
+        columnNumber: 5
+    }, this);
+}
+_c = VisibilityFilterInput;
+exports.default = (0, _reactRedux.connect)(null, {
+    setFilter: (0, _actions.setFilter)
+})(VisibilityFilterInput);
+var _c;
+$RefreshReg$(_c, "VisibilityFilterInput");
+
+  $parcel$ReactRefreshHelpers$dea5.postlude(module);
+} finally {
+  window.$RefreshReg$ = prevRefreshReg;
+  window.$RefreshSig$ = prevRefreshSig;
+}
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","react-bootstrap":"3AD9A","../../actions/actions":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"bwuIu":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$67b2 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -50543,45 +50626,7 @@ MovieCard.propTypes = {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru","prop-types":"7wKI2","./movie-card.scss":"d6HH4","react-bootstrap":"3AD9A","react-router-dom":"cHIiW"}],"d6HH4":[function() {},{}],"gtTIg":[function(require,module,exports) {
-var $parcel$ReactRefreshHelpers$dea5 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
-var prevRefreshReg = window.$RefreshReg$;
-var prevRefreshSig = window.$RefreshSig$;
-$parcel$ReactRefreshHelpers$dea5.prelude(module);
-
-try {
-var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
-parcelHelpers.defineInteropFlag(exports);
-var _jsxDevRuntime = require("react/jsx-dev-runtime");
-var _react = require("react");
-var _reactDefault = parcelHelpers.interopDefault(_react);
-var _reactRedux = require("react-redux");
-var _reactBootstrap = require("react-bootstrap");
-var _actions = require("../../actions/actions");
-function VisibilityFilterInput(props) {
-    return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _reactBootstrap.Form).Control, {
-        onChange: (e)=>props.setFilter(e.target.value),
-        value: props.visibilityFilter,
-        placeholder: "filter"
-    }, void 0, false, {
-        fileName: "src/components/visibility-filter-input/visibility-filter-input.jsx",
-        lineNumber: 10,
-        columnNumber: 5
-    }, this);
-}
-_c = VisibilityFilterInput;
-exports.default = (0, _reactRedux.connect)(null, {
-    setFilter: (0, _actions.setFilter)
-})(VisibilityFilterInput);
-var _c;
-$RefreshReg$(_c, "VisibilityFilterInput");
-
-  $parcel$ReactRefreshHelpers$dea5.postlude(module);
-} finally {
-  window.$RefreshReg$ = prevRefreshReg;
-  window.$RefreshSig$ = prevRefreshSig;
-}
-},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","react-redux":"bdVon","react-bootstrap":"3AD9A","../../actions/actions":"biFwH","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"lJZlQ":[function() {},{}],"dgblV":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"iTorj","react":"21dqq","prop-types":"7wKI2","react-bootstrap":"3AD9A","react-router-dom":"cHIiW","./movie-card.scss":"d6HH4","@parcel/transformer-js/src/esmodule-helpers.js":"gkKU3","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"km3Ru"}],"d6HH4":[function() {},{}],"lJZlQ":[function() {},{}],"dgblV":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _redux = require("redux");

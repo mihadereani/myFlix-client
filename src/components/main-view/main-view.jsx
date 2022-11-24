@@ -4,12 +4,7 @@ import { connect } from 'react-redux';
 
 import { NavBar } from '../navbar/navbar';
 
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Link,
-} from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 
 import { setMovies } from '../../actions/actions';
 import MoviesList from '../movies-list/movies-list';
