@@ -1,0 +1,19 @@
+.figure {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
+  width: 100%;
+  margin-bottom: 15px;
+
+  img {
+    display: block;
+    height: 400px;
+    margin: auto;
+  }
+}
+
+.link {
+  text-align: center;
+}
