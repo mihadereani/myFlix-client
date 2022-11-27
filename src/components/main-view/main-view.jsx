@@ -25,9 +25,6 @@ class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-<<<<<<< HEAD
-      user: null,
-=======
       movies: [
         {
           _id: 1,
@@ -52,7 +49,6 @@ class MainView extends React.Component {
         },
       ],
       selectedMovie: null,
->>>>>>> main
     };
   }
 
