@@ -18,3 +18,5 @@ Using React, build the client-side for an application called myFlix based on  i
 - Parcel
 
 Project can be tested using Parcel: <font color="red">parcel src/index.html</font>
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/6b7b7ad8-3c13-46a8-a627-2e20a5cc9889/deploy-status)](https://app.netlify.com/sites/myflix-miha/deploys)
