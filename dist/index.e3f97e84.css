@@ -17,6 +17,56 @@
   text-align: center;
 }
 
+
+
+.space {
+  margin-top: 75px;
+}
+
+.fav-movie {
+  margin-bottom: 15px;
+}
+
+.fav-movie figure {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  margin: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.fav-movie figure img {
+  height: 360px;
+  margin: auto;
+  display: block;
+}
+
+.fav-movie figure figcaption {
+  text-align: center;
+}
+
+.fav-movie button {
+  margin: auto;
+  display: block;
+}
+
+
+
+.genre-title {
+  margin-bottom: 6px;
+  font-size: 36px;
+}
+
+.director-name {
+  margin-bottom: 6px;
+  font-size: 36px;
+}
+
+.label {
+  font-weight: bold;
+}
+
 .movie-view {
   padding-top: 12px;
 }
@@ -59,55 +109,5 @@
   margin-top: 24px;
   font-weight: bold;
 }
-
-
-
-.director-name {
-  margin-bottom: 6px;
-  font-size: 36px;
-}
-
-.label {
-  font-weight: bold;
-}
-
-.genre-title {
-  margin-bottom: 6px;
-  font-size: 36px;
-}
-
-.fav-movie {
-  margin-bottom: 15px;
-}
-
-.fav-movie figure {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  width: 100%;
-  margin: auto;
-  position: relative;
-  overflow: hidden;
-}
-
-.fav-movie figure img {
-  height: 360px;
-  margin: auto;
-  display: block;
-}
-
-.fav-movie figure figcaption {
-  text-align: center;
-}
-
-.fav-movie button {
-  margin: auto;
-  display: block;
-}
-
-.space {
-  margin-top: 75px;
-}
-
-
 
 /*# sourceMappingURL=index.e3f97e84.css.map */
