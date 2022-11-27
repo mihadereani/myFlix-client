@@ -25,34 +25,6 @@ class MainView extends React.Component {
   constructor() {
     super();
     this.state = {
-<<<<<<< HEAD
-<<<<<<< HEAD
-      movies: [
-        {
-          _id: 1,
-          Title: 'Inception',
-          Description: 'desc1...',
-          ImagePath: '...',
-        },
-        {
-          _id: 2,
-          Title: 'The Shawshank Redemption',
-          Description: 'desc2...',
-          ImagePath: '...',
-        },
-        {
-          _id: 3,
-          Title: 'Gladiator',
-          Description: 'desc3...',
-          ImagePath: '...',
-        },
-      ],
-      selectedMovie: null,
-=======
-      movies: [],
->>>>>>> ad5aa26 (create Routes)
-=======
->>>>>>> c77bef6 (redux)
       user: null,
     };
   }
