@@ -30,7 +30,10 @@
   },
   "devDependencies": {
     "@parcel/transformer-sass": "^2.7.0",
+<<<<<<< HEAD
     "buffer": "^6.0.3",
+=======
+>>>>>>> main
     "parcel": "^2.7.0",
     "process": "^0.11.10"
   }
