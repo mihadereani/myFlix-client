@@ -1,0 +1,103 @@
+.figure {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
+  width: 100%;
+  margin-bottom: 15px;
+}
+.figure img {
+  display: block;
+  height: 400px;
+  margin: auto;
+}
+
+.link {
+  text-align: center;
+}
+.login-view {
+  padding: 36px 36px 36px 36px;
+  margin-top: 24px;
+}
+
+.login-title {
+  font-size: 32px;
+}
+
+.login-view__label {
+  margin-top: 12px;
+}
+
+.login-view__button {
+  margin-top: 12px;
+}
+
+.register-text {
+  margin-top: 24px;
+  font-weight: bold;
+}
+.movie-view {
+  padding-top: 12px;
+}
+
+.movie-poster {
+  margin-bottom: 12px;
+}
+
+.movie-title {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.paragraph {
+  margin-bottom: 6px;
+}
+
+.button {
+  margin: 24px 0px 24px;
+}
+.director-name {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+
+.label {
+  font-weight: bold;
+}
+.genre-title {
+  font-size: 36px;
+  margin-bottom: 6px;
+}
+.fav-movie {
+  margin-bottom: 15px;
+}
+.fav-movie figure {
+  position: relative;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: auto;
+  width: 100%;
+}
+.fav-movie figure img {
+  display: block;
+  height: 360px;
+  margin: auto;
+}
+.fav-movie figure figcaption {
+  text-align: center;
+}
+.fav-movie button {
+  display: block;
+  margin: auto;
+}
+.space {
+  margin-top: 75;
+}
+
+/*# sourceMappingURL=/src.78399e21.css.map */
