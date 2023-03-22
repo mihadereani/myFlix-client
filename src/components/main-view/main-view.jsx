@@ -39,6 +39,10 @@ class MainView extends React.Component {
     }
   }
 
+  /**
+   * GET movies from API on logged-in
+   * @param {*} token
+   */
   getMovies(token) {
     axios
       .get('https://myflixmiha.herokuapp.com/movies', {
