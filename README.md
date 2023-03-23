@@ -54,6 +54,6 @@ Project can be tested using Parcel: `parcel src/index.html`
 
 ## App Screenshots
 
-![Screenshot of registartion form.](./src/assets/Screenshot%202023-03-23%20at%2015.25.00.png)
-![Screenshot of welcome page.](./src/assets/Screenshot%202023-03-23%20at%2015.25.28.png)
-![Screenshot of welcome page.](./src/assets/Screenshot%202023-03-23%20at%2015.26.54.png)
+![](./src/assets/Screenshot%202023-03-23%20at%2015.25.00.png)
+![](./src/assets/Screenshot%202023-03-23%20at%2015.25.28.png)
+![](./src/assets/Screenshot%202023-03-23%20at%2015.26.54.png)
